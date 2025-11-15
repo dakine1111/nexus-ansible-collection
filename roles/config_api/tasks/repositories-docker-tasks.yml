@@ -137,6 +137,7 @@
     (__nxs_crnt_docker_prxy__ | selectattr('name', 'equalto', item.name) | first).docker.forceBasicAuth | default(false) != item.docker.forceBasicAuth | default(false) or
     (__nxs_crnt_docker_prxy__ | selectattr('name', 'equalto', item.name) | first).docker.httpPort | default(omit) != item.docker.httpPort | default(None) or
     (__nxs_crnt_docker_prxy__ | selectattr('name', 'equalto', item.name) | first).docker.httpsPort | default(omit) != item.docker.httpsPort | default(None) or
+    (__nxs_crnt_docker_prxy__ | selectattr('name', 'equalto', item.name) | first).docker.pathEnabled | default(true) != item.docker.pathEnabled | default(true) or
     (__nxs_crnt_docker_prxy__ | selectattr('name', 'equalto', item.name) | first).docker.subdomain | default(omit) | lower != item.docker.subdomain | default(None) | lower or
     (__nxs_crnt_docker_prxy__ | selectattr('name', 'equalto', item.name) | first).dockerProxy.indexType | default(omit) | upper != item.dockerProxy.indexType | default(None) | upper or
     (__nxs_crnt_docker_prxy__ | selectattr('name', 'equalto', item.name) | first).dockerProxy.indexUrl | default(omit) != item.dockerProxy.indexUrl | default(None) or

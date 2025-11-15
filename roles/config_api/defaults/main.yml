@@ -277,6 +277,7 @@ nexus_repos_format_defaults:
     docker:
       forceBasicAuth: true
       v1Enabled: false
+      pathEnabled: true
     dockerProxy:
       indexType: HUB
       cacheForeignLayers: false
@@ -371,6 +372,7 @@ legacy_field_map:
   writable_member_repo: "group.writableMember"
   http_port: "docker.httpPort"
   https_port: "docker.httpsPort"
+  path_enabled: "docker.pathEnabled"
   sub_domain: "docker.subdomain"
   v1_enabled: "docker.v1Enabled"
   force_basic_auth: "docker.forceBasicAuth"
