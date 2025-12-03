@@ -13,7 +13,7 @@ def normalize_local_users(users):
 
     for user in users:
         # Check if already in API format
-        if all(key in user for key in ["userId", "firstName", "lastName", "emailAddress"]):
+        if all(key in user for key in ["userId", "firstName", "lastName", "emailAddress", "password"]):
             normalized_users.append(user)
             continue
 
@@ -23,6 +23,7 @@ def normalize_local_users(users):
             "firstName": user.get("first_name", ""),
             "lastName": user.get("last_name", ""),
             "emailAddress": user.get("email", ""),
+            "password": user.get("password", ""),
             "source": "default",
             "status": "active",
             "readOnly": False,

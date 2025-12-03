@@ -9,10 +9,11 @@
       {% endif %}
     api_body: >
       {% if method == 'POST' %}
-        {{ item | combine({"password": nexus_default_user_password}) | to_json }}
+        {{ item | combine({"password": item.password | default (nexus_default_user_password) }) | to_json }}
       {% else %}
         {{ item | to_json }}
       {% endif %}
+  no_log: true
   tags: users
 
 - name: "{{ method }} {{ item.userId }} user"
@@ -27,5 +28,6 @@
     timeout: "{{ nexus_api_timeout }}"
     body: "{{ api_body }}"
     body_format: json
+  no_log: true
   changed_when: true
   tags: users
